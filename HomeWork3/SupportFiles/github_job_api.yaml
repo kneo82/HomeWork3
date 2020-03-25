@@ -1,0 +1,100 @@
+openapi: 3.0.1
+info:
+  title: GitHub Job
+  description: 'GitHub Job'
+  version: 1.0.0
+externalDocs:
+  description: API Root
+  url: https://jobs.github.com
+servers:
+- url: https://jobs.github.com
+tags:
+- name: getJobs
+  description: Get Jobs
+paths:
+  /positions.json:
+    get:
+      tags:
+      - job
+      summary: Get Job
+      operationId: getJob
+      parameters:
+        - name: description
+          in: query
+          description: Job Description
+          required: true
+          schema:
+            type: string
+            
+        - name: location
+          in: query
+          description: Location
+          required: false
+          schema:
+            type: string
+            
+        - name: page
+          in: query
+          description: Page Number
+          required: true
+          schema:
+            type: integer
+        
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobsList'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+components:
+  schemas:
+    JobsList:
+      type: object
+      items:
+        $ref: "#/components/schemas/Job"
+          
+    Job:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        url:
+          type: string
+        created_at:
+          type: string
+        company:
+          type: string
+        company_url:
+          type: string
+        location:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        how_to_apply:
+          type: string
+        company_logo:
+          type: string
+          
+    ErrorModel:
+      type: object
+      required:
+      - message
+      - code
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          minimum: 100
+          maximum: 600
