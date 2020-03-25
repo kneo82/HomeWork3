@@ -7,24 +7,29 @@
 //
 
 import SwiftUI
-import JobAPI
-
 
 struct RootView: View {
-   
-    init() {
-        JobAPI.getJob(description: "swift", page: 1) { jobsList, error in
-            print(jobsList)
-            print(error)
-        }
-    }
+    
+    @ObservedObject var rootViewModel: RootViewModel
+    var locator: ServiceLocator?
+    
     var body: some View {
-        Text("Hello, World!")
-    }
-}
-
-struct RootView_Previews: PreviewProvider {
-    static var previews: some View {
-        RootView()
+        TabView(selection: $rootViewModel.selectedTab) {
+            NewsView(locator: locator)
+                .font(.title)
+                .tabItem({
+                    Image(systemName: "text.bubble")
+                    Text("News")
+                })
+                .tag(RootViewModel.Tab.news)
+            
+            JobsView(locator: locator)
+                .font(.title)
+                .tabItem({
+                    Image(systemName: "person.crop.circle.fill")
+                    Text("Jobs")
+                })
+                .tag(RootViewModel.Tab.jobs)
+        }
     }
 }

@@ -1,0 +1,99 @@
+openapi: 3.0.1
+info:
+  title: News Api
+  description: 'News'
+  version: 1.0.0
+externalDocs:
+  description: API Root
+  url: http://newsapi.org
+servers:
+- url: http://newsapi.org
+tags:
+- name: getNews
+  description: Get News
+paths:
+  /v2/top-headlines:
+    get:
+      tags:
+      - news
+      summary: Get News
+      operationId: getNews
+      parameters:
+        - name: country
+          in: query
+          description: Country
+          required: true
+          schema:
+            type: string
+            
+        - name: apiKey
+          in: query
+          description: Api Key
+          required: true
+          schema:
+            type: string
+        
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NewsList'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+components:
+  schemas:
+    NewsList:
+      type: object
+      properties:
+        status:
+          type: string
+        totalResults:
+          type: integer
+        articles:
+          type: array
+          items:
+            $ref: "#/components/schemas/articles"
+          
+    articles:
+      type: object
+      properties:
+        source:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+        author:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        url:
+          type: string
+        urlToImage:
+          type: string
+        publishedAt:
+          type: string
+        content:
+          type: string
+          
+    ErrorModel:
+      type: object
+      required:
+      - message
+      - code
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          minimum: 100
+          maximum: 600
