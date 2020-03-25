@@ -16,6 +16,8 @@
 		309D1F62242BE30500162901 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309D1F61242BE30500162901 /* ServiceLocator.swift */; };
 		309D1F96242BF8D000162901 /* JobAPI in Resources */ = {isa = PBXBuildFile; fileRef = 309D1F95242BF8D000162901 /* JobAPI */; };
 		309D1F98242BF8DC00162901 /* JobAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 309D1F97242BF8DC00162901 /* JobAPI */; };
+		30DB3B67242C059A00F8E0B9 /* NewsAPI in Resources */ = {isa = PBXBuildFile; fileRef = 30DB3B66242C059A00F8E0B9 /* NewsAPI */; };
+		30DB3B6B242C05B100F8E0B9 /* NewsAPI in Frameworks */ = {isa = PBXBuildFile; productRef = 30DB3B6A242C05B100F8E0B9 /* NewsAPI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,7 @@
 		309D1F61242BE30500162901 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		309D1F90242BF72D00162901 /* github_job_api.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = github_job_api.yaml; sourceTree = "<group>"; };
 		309D1F95242BF8D000162901 /* JobAPI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = JobAPI; sourceTree = "<group>"; };
+		30DB3B66242C059A00F8E0B9 /* NewsAPI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NewsAPI; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30DB3B6B242C05B100F8E0B9 /* NewsAPI in Frameworks */,
 				309D1F98242BF8DC00162901 /* JobAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,6 +132,7 @@
 		309D1F92242BF87A00162901 /* APIs */ = {
 			isa = PBXGroup;
 			children = (
+				30DB3B66242C059A00F8E0B9 /* NewsAPI */,
 				309D1F95242BF8D000162901 /* JobAPI */,
 			);
 			path = APIs;
@@ -147,11 +152,13 @@
 			buildRules = (
 			);
 			dependencies = (
+				30DB3B69242C05AD00F8E0B9 /* PBXTargetDependency */,
 				309D1F8F242BF3A800162901 /* PBXTargetDependency */,
 			);
 			name = HomeWork3;
 			packageProductDependencies = (
 				309D1F97242BF8DC00162901 /* JobAPI */,
+				30DB3B6A242C05B100F8E0B9 /* NewsAPI */,
 			);
 			productName = HomeWork3;
 			productReference = 309D1F46242BC89700162901 /* HomeWork3.app */;
@@ -199,6 +206,7 @@
 				309D1F53242BC89A00162901 /* Preview Assets.xcassets in Resources */,
 				309D1F50242BC89A00162901 /* Assets.xcassets in Resources */,
 				309D1F96242BF8D000162901 /* JobAPI in Resources */,
+				30DB3B67242C059A00F8E0B9 /* NewsAPI in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +230,10 @@
 		309D1F8F242BF3A800162901 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			productRef = 309D1F8E242BF3A800162901 /* JobAPI */;
+		};
+		30DB3B69242C05AD00F8E0B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 30DB3B68242C05AD00F8E0B9 /* NewsAPI */;
 		};
 /* End PBXTargetDependency section */
 
@@ -422,6 +434,14 @@
 		309D1F97242BF8DC00162901 /* JobAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = JobAPI;
+		};
+		30DB3B68242C05AD00F8E0B9 /* NewsAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NewsAPI;
+		};
+		30DB3B6A242C05B100F8E0B9 /* NewsAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NewsAPI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
